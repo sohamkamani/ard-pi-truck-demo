@@ -5,8 +5,14 @@
     <title></title>
   </head>
   <body>
-
+    <div id="app">
+      Total weight : {{ totalWeight }} kg<br />
+      Box 1 : {{box1 ? 'Placed' : 'Absent'}}<br />
+      Box 2 : {{box2 ? 'Placed' : 'Absent'}}<br />
+      Latest RFID : {{rfid}}
+    </div>
     <script src="socket.io.js"></script>
+    <script src="vue.min.js" charset="utf-8"></script>
     <script src="main.js" charset="utf-8"></script>
   </body>
 </html>
