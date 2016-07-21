@@ -1,0 +1,22 @@
+{
+  "name": "ard-pi-truck-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "get-serial.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sohamkamani/ard-pi-truck-demo.git"
+  },
+  "author": "Soham Kamani <sohamkamani@gmail.com> (http://sohamkamani.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sohamkamani/ard-pi-truck-demo/issues"
+  },
+  "homepage": "https://github.com/sohamkamani/ard-pi-truck-demo#readme",
+  "dependencies": {
+    "serialport": "^4.0.1"
+  }
+}
