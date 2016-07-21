@@ -27,8 +27,8 @@ const getWeight = (box1, box2) => {
 
 socket.on('state-change', newState => {
   console.log(newState)
-  newState.box1 = convertToBinary(newState.box1)
-  newState.box2 = convertToBinary(newState.box2)
+  newState.box1 = !convertToBinary(newState.box1)
+  newState.box2 = !convertToBinary(newState.box2)
   newState.totalWeight = getWeight(newState.box1, newState.box2)
   Object.assign(data, newState)
 });
