@@ -2,6 +2,7 @@ var SerialPort = require("serialport").SerialPort;
 var serialport = new SerialPort("/dev/ttyACM0");
 
 const state = {}
+const callbacks = []
 
 serialport.on('open', function() {
   console.log('Serial Port Opend');
@@ -22,6 +23,7 @@ serialport.on('open', function() {
     const data = dataString.split('\n')
     data.forEach(processLine)
     console.log(state)
+    callbacks.forEach(cb => cb(state))
     dataString = '';
   }
   serialport.on('data', function(data) {
@@ -32,3 +34,7 @@ serialport.on('open', function() {
     }
   });
 });
+
+module.exports = {
+  subscribe: cb => callbacks.push(cb)
+}
