@@ -1,5 +1,6 @@
 var SerialPort = require("serialport").SerialPort;
-var serialport = new SerialPort("/dev/ttyACM0");
+// var serialport = new SerialPort("/dev/ttyACM0");
+var serialport = new SerialPort("/dev/cu.usbmodem1411");
 
 const state = {}
 const callbacks = []
@@ -17,6 +18,9 @@ serialport.on('open', function() {
     if (line.indexOf('000') >= 0) {
       state.rfid = line
     }
+    if (line.indexOf('g') >= 0) {
+      state.totalWeight = line
+    }
   }
   const showData = () => {
     // console.log(dataString);
@@ -29,7 +33,7 @@ serialport.on('open', function() {
   serialport.on('data', function(data) {
     const ds = data.toString();
     dataString += ds;
-    if (dataString.indexOf('End') >= 0) {
+    if (dataString.indexOf('End') >= 0 || dataString.indexOf('g') >= 0) {
       showData()
     }
   });

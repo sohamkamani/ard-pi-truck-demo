@@ -1,4 +1,6 @@
 #include <SoftwareSerial.h>
+#include <Hx711.h>
+Hx711 scale(A2, A3);
 
 int ground1 = 2;
 int ground2 = 4;
@@ -41,6 +43,9 @@ void loop() {
                 Serial.print("Box 2 :");
                 Serial.println(box2);
         }
+        Serial.print(scale.getGram(), 1);
+        Serial.println(" g");
+        delay(200);
 
         //delay(300);
 }
