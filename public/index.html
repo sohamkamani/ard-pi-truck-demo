@@ -1,18 +1,53 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <div id="app">
-      Total weight : {{ totalWeight }} kg<br />
-      Box 1 : {{box1 ? 'Placed' : 'Absent'}}<br />
-      Box 2 : {{box2 ? 'Placed' : 'Absent'}}<br />
-      Latest RFID : {{rfid}}
+    <title>Dashboard</title>
+    <style>
+        body {
+            min-width: 1024px;
+            margin: 0;
+            background: black;
+            background: -webkit-linear-gradient(rgb(81, 81, 81), rgb(30, 30, 30));
+            background: -o-linear-gradient(rgb(81, 81, 81), rgb(30, 30, 30));
+            background: -moz-linear-gradient(rgb(81, 81, 81), rgb(30, 30, 30));
+            background: linear-gradient(rgb(81, 81, 81), rgb(30, 30, 30));
+        }
+
+        .imagebg {
+            background: url('./img/dash.png') no-repeat center;
+            background-size: contain;
+            height: 100vh;
+        }
+
+        .weight-box {
+            position: relative;
+            left: 52%;
+            font-size: 25px;
+            top: 155px;
+            width: 100px;
+            height: 60px;
+            text-align: center;
+            background: white;
+            display: inline-block;
+            font-family: helvetica;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="imagebg">
+        <div class="weight-box">
+            <div id="app">
+                {{ totalWeight }} kg
+            </div>
+        </div>
     </div>
+
     <script src="socket.io.js"></script>
     <script src="vue.min.js" charset="utf-8"></script>
     <script src="main.js" charset="utf-8"></script>
-  </body>
+</body>
+
 </html>
